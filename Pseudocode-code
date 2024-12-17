@@ -1,0 +1,40 @@
+#Transfer data from device to the program.
+#The device would be able to store specific weights at certain times throughout the day (for example, if the food weighs 1.3 lbs at the start of the day, the device would calculate every time the weight decreases and increases). If the weight increases, that tells the user that food was added back into the container, and if the weight decreases, that tells the user that food was taken from the container. Then the scale can be set to record the final weight at a specific time, preferably when the buffet closes and before the cooks clean the containers. This will ensure that the scale does not record the weight, which would be close to 0, after the cooks dump out and clean the container.
+#Most of this code is taken from a video showing how to read data from a digital scale. I am going to add a datetime library to read the time at which the weight changes on the digital scale.
+from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
+From django.db import connection
+import serial
+import re
+import socket
+from datetime import datetime
+
+
+def dictfetchall(cursor):
+	“Return all rows from a cursor as a dictionary”
+	Columns = [col[0] for col in cursor.description]
+	return [
+		dict(zip(columns, rows))
+		For row in cursor.fetchall()
+	]
+
+Def digital_scale(request):
+	ComPort = “com3”
+	Try: 
+		SerialComs = serial.Serial(ComPort, 9600)
+	Except:
+		Pass
+Value = SerialComs.readline().decode(encoding=”ascii”, errors=”ignore”)
+“””Formatting the weight”””
+print(‘LBS’, value)
+mo=value
+Value_2 = re.sub(‘[lbs]’,  ‘ ‘, mo)
+Value_2 = int(float(value_2))
+print(“Value Two”, value_2)
+Value = re.sub(‘[+”\r/nkg]’, ‘ ‘, value)
+“””Formatting the weight”””
+
+Return JsonResponse({‘data’: value})
+
+		
+		

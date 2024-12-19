@@ -1,0 +1,13 @@
+Read weight from a digital scale
+Record the data at what time the weight increased or decreased
+When the weight decreases
+  Add that value to food_taken weight
+When the weight increased
+  Add that value to the food_made weight
+Make a food counter that will track how many times a specific food gets taken
+  Counter += 1 when food decreases
+Record food weight at the end of open period (when food is replenished and not thrown out)
+  Compare total food made to total food taken to get the total food wasted
+Optional input for kitchen to record how much food they threw out in preparation
+Math for how much money could have been saved if wasted food was not made
+Print statement that includes how much food was made, taken, wasted, and the most taken food

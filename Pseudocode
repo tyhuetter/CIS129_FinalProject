@@ -1,0 +1,46 @@
+Import libraries that can transfer data from a connected external device into python (Django, serial, socket)
+Import libraries that can record time (Datetime, time)
+Import csv for making files
+Make function that records the data from the digital scale to a dictionary
+	Food_name = str(input(“What food item is this file documenting? “))
+	Open CSV file for writing (Name file after food_name)
+		weight1 = old weight from scale (original weight)
+		Weight2 = new weight from scale (changed weight)
+		Food_made = 0
+		Food_taken = 0
+		Food_counter = 0
+		Writer = csv.writer(filename)
+		If weight != weight:
+			while datetime.now() < closing time
+				If weight1 > weight2: 
+					Weight_minus = Weight1 - weight2
+					Food_taken += weight_minus
+					Food_counter += 1
+				If weight1 < weight2:
+					Weight_plus = weight2 - weight1
+					Food_made = += weight_plus
+			While datetime.now() >= closing time
+				Food_waste = 0
+				Food_waste = food_made - food_taken
+				Food_data = (f‘{food_name:<15}{food_taken:<10}{food_made:<10}{food_counter:<10}{food_waste:<10}’)
+				writer.writerow(food_data)
+	Open CSV file for reading
+		print(f’{‘Dish Name’:<15}{‘Food Taken’:<10}{‘Food Made’:<10}{‘Food Counter’:<10}{Food Waste’:<10}’)
+		Reader = csv.reader(filename)	
+		For record in file:
+			File_print = record
+			print(f’{file_print}’)
+
+Def function for finding cost of wasted food
+	Function call (food_name, food_waste)
+	Open new CSV file (Food_name_cost) for writing
+		S_size =float( input(“Enter what the normal serving size is for”, food_name, “: “))
+		S_cost = float(input”(Enter how much it usually costs to make a serving size for”, food_name, “; “))
+		Waste_cost = (food_waste / S_size) * s_cost
+		Writer = csv.writer(filename)
+		Food_cost = (f’{food_name:<15}{s_size:<10}{s_cost:<10}{waste_cost:<10}’)
+		writer.writerow(food_cost)
+
+	Open CSV file for reading
+		print(f’{“Food name”:<15}{“Serving Size”:<10}{“Serving Cost”:<10}{“Waste Cost”:<10}
+		print(food_cost)
